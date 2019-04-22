@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	
+	<style>
+		body {
+			margin: 0
+		}
+
+		main {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 30%;
+			left: 30%;
+			transform-style: preserve-3d;
+			transform: rotateY(0deg) rotateX(0deg);
+			animation: rot 5s infinite;
+		}
+
+		@keyframes rot {
+			form {
+				transform: rotateY(70deg) rotateX(50deg);
+			}
+			to {
+				transform: rotateY(180deg) rotateX(170deg);
+			}
+		}
+
+		h1 {
+			margin: 0
+		}
+
+		div {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			background: url('./images/2.jpg') no-repeat;
+			background-size: 100%;
+			transform-style: preserve-3d;
+			transition: all 1s;
+			opacity: .4;
+			text-align: center;
+			line-height: 200px;
+		}
+
+		.c1 {
+			/* border: 1px solid #ccc; */
+			background-color: red;
+			transform: rotateX(90deg) translateY(100px);
+			transform-origin: 100% 100%;
+		}
+
+		.c2 {
+			background-color: yellow;
+			transform: rotateY(90deg) translateZ(-100px);
+		}
+
+		.c3 {
+			background-color: black;
+			transform: rotateY(90deg) translateZ(100px);
+		}
+
+		.c4 {
+			background-color: green;
+			transform: translateZ(-100px);
+		}
+
+		.c5 {
+			background-color: #d29;
+			transform: rotateX(90deg) translateZ(200px) translateY(100px);
+			transform-origin: 100% 100%;
+		}
+
+		.c6 {
+			background-color: blue;
+			transform: translateZ(100px);
+			/* display: none; */
+		}
+	</style>
+
+</head>
+
+<body>
+    <main>
+        <div class="c1">
+            <h1>1</h1>
+        </div>
+        <div class="c2">
+            <h1>2</h1>
+        </div>
+        <div class="c3">
+            <h1>3</h1>
+        </div>
+        <div class="c4">
+            <h1>4</h1>
+        </div>
+        <div class="c5">
+            <h1>5</h1>
+        </div>
+        <div class="c6">
+            <h1>6</h1>
+        </div>
+    </main>
+
+</body>
+
+</html>

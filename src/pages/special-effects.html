@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 480px;
+      height: 500px;
+      border: 1px solid #ddd;
+      position: absolute;
+      left: calc(50% - 240px);
+      top: calc(50% - 250px);
+      font-size: 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .box:hover span {
+      transform: translateY(-100%);
+    }
+    .box span {
+      display: inline-block;
+      width: 20%;
+      height: 100%;
+      background-image: url('./images/360.jpg');
+      transition-delay: 0;
+      background-size: cover;
+      transition: .5s;
+    }
+    .box span:nth-child(1) {
+      background-position: 0;
+      transition-delay: 0;
+    }
+    .box span:nth-child(2) {
+      background-position: 23%;
+      transition-delay: .1s;
+    }
+    .box span:nth-child(3) {
+      background-position: 46%;
+      transition-delay: .2s;
+    }
+    .box span:nth-child(4) {
+      background-position: 69.9%;
+      transition-delay: .3s;
+    }
+    .box span:nth-child(5) {
+      background-position: 93%;
+      transition-delay: .4s;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</body>
+</html>

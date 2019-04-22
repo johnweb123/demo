@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {margin: 0; padding: 0}
+    .droptarget {
+    float: left; 
+    width: 100px; 
+    height: 35px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+  </style>
+</head>
+<body>
+    <p>在两个矩形框中来回拖动 p 元素:</p>
+    <div class="droptarget">
+      <p draggable="true" id="dragtarget">拖动我!</p>
+    </div>
+    <div class="droptarget"></div>
+    <p style="clear:both;"><strong>注意：</strong>Internet Explorer 8 及更早 IE 版本或 Safari 5.1 及更早版本的浏览器不支持 drag 事件。</p>
+    <p id="demo"></p>
+</body>
+<script>
+    
+    window.onload = function () {
+      /* 拖动时触发*/
+      document.addEventListener('dragstart', e => {
+        //dataTransfer.setData()方法设置数据类型和拖动的数据
+        e.dataTransfer.setData('text', e.target.id)
+        // 拖动 p 元素时输出一些文本
+        document.getElementById('demo').innerHTML = '开始拖动p元素'
+        e.target.style.opacity = '0.4';
+      })
+      //
+      document.addEventListener('drag', e => {
+        document.getElementById('demo').style.color = 'red'
+      })
+      document.addEventListener('dragend', e => {
+        document.getElementById('demo').innerHtml = '完成p元素拖动'
+      })
+
+      /* 拖动完成后触发 */
+      document.addEventListener('dragenter', e => {
+        console.log(e)
+        if (e.target.class == "droptarget") {
+          e.target.style.color = '3px dotted red'
+        }
+      })
+      document.addEventListener('dragover', e => {
+        e.preventDefault()
+      })
+      document.addEventListener('dragleave', e => {
+        if (e.target.className == 'droptarget') {
+          e.target.style.color = ''
+        }
+      })
+      document.addEventListener('drop', e => {
+        e.preventDefault()
+        if (e.target.className == 'droptarget') {
+          document.getElementById('demo').style.color = ''
+          e.target.style.border = ''
+          var data = e.dataTransfer.getData('text')
+          e.target.appendChild(document.getElementById(data))
+        }
+      })
+    }
+</script>
+</html>
